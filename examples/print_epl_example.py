@@ -27,15 +27,16 @@ SCROLL_COLUMNS = 1
 LABEL_GAP_MM = 3.500
 X_OFFSET_MM = 0.625
 Y_OFFSET_MM = 0.000
+DARKNESS_LEVEL = 13
+PRINT_SPEED = 4
 
 
 #######################################################################
 # Initialise workers objects.
 zp = zprinter.detect_printer()
-epl = zprinter.EplCommand(zp, LABEL_WIDTH_MM,
-                          LABEL_LENGTH_MM + LENGTH_ADJUST_MM,
-                          SCROLL_COLUMNS, LABEL_GAP_MM,
-                          X_OFFSET_MM, Y_OFFSET_MM)
+epl = zprinter.EplCommand(zp, LABEL_WIDTH_MM, LABEL_LENGTH_MM + LENGTH_ADJUST_MM,
+                          SCROLL_COLUMNS, LABEL_GAP_MM, X_OFFSET_MM, Y_OFFSET_MM,
+                          DARKNESS_LEVEL, PRINT_SPEED)
 
 #-----------------------------------------------------------------------
 # Define a Label object for later use.
@@ -136,4 +137,3 @@ epl.encode_text(objText2.text, start_x=text2_xpos, start_y=text2_ypos, font_size
 # Submit the EPL2 command to the printer.
 epl.encode_print_label()
 epl.send_command()
- 

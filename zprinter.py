@@ -422,7 +422,8 @@ def dot2mm(size_dot):
 
 ########################################################################
 class EplCommand(object):
-    def __init__(self, printer, width_mm, length_mm, columns=1, gap_mm=2, x_offset_mm=0.0, y_offset_mm=0.0):
+    def __init__(self, printer, width_mm, length_mm, columns=1, gap_mm=2,
+                 x_offset_mm=0.0, y_offset_mm=0.0, darkness_level=8, print_speed=3):
         assert(int(columns)), "Invalid_setting (columns of {}): columns must be an integer >= 1".format(columns)
         self.printer = printer
         self.active_column = 0
@@ -436,8 +437,8 @@ class EplCommand(object):
 
         self.set_codepage()
         self.set_size_properties(width_mm, length_mm, columns, gap_mm, force_configure=False)
-        self.set_print_speed()
-        self.set_darkness_level()
+        self.set_print_speed(print_speed)
+        self.set_darkness_level(darkness_level)
         self.set_print_direction()
 
         if AUTOCALIBRATE:
@@ -472,9 +473,9 @@ class EplCommand(object):
         """
         self.send_command('R{},{}\n'.format(pos_x, pos_y))
 
-    def next_label(self):
+    def next_label(self, final=False):
         self.active_column += 1
-        if self.active_column == self.columns:
+        if self.active_column == self.columns or final is True:
             self.encode_print_label()
             self.send_command(self.command)
 
@@ -534,12 +535,12 @@ class EplCommand(object):
     def set_print_speed(self, speed=3):
         """
         'S' Command: Set printer output speed.
-            2=50mm/s, 3=75mm/2, 4=100mm/s, 5=125mm/s
+            2=50mm/s, 3=75mm/s, 4=100mm/s, 5=125mm/s
         """
         assert(2 <= speed <= 5), "Invalid setting (speed of {}): 2 <= speed <= 5".format(speed)
         self._print_speed = 'S{}\n'.format(speed)
 
-    def set_darkness_level(self, level=13):
+    def set_darkness_level(self, level=8):
         """
         'D' Command: Set printer burn-rate, thus darkness level
             0 Lightest to 15 Darkest  (default is 8 for GK420)

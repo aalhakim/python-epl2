@@ -26,7 +26,8 @@ if __name__ == '__main__':
 
     # Create a Zebra Printer handler
     zebraPrinter = zprinter.Printer(zp, LABEL_WIDTH_MM, LABEL_LENGTH_MM, LENGTH_ADJUST_MM,
-                                    SCROLL_COLUMNS, LABEL_GAP_MM, X_OFFSET_MM, Y_OFFSET_MM)
+                                    SCROLL_COLUMNS, LABEL_GAP_MM, X_OFFSET_MM, Y_OFFSET_MM,
+                                    DARKNESS_LEVEL, PRINT_SPEED)
 
     # Printing of different sized boxes
     STROKE_WIDTH = 0.125

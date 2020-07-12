@@ -20,7 +20,7 @@ LABEL_LENGTH_MM = 20.000
 # can be on printers where the default (0,0) position seems far
 # from the label edges. WARNING: Making this value too high may
 # cause some odd printer behaviour. Try to keep the value small.
-LENGTH_ADJUST_MM = 1.75
+LENGTH_ADJUST_MM = 1.000
 
 # The number of columns on the label scroll.
 SCROLL_COLUMNS = 1
@@ -31,8 +31,16 @@ LABEL_GAP_MM = 2.000
 
 # Offet all barcode objects in the x direction (positive will move
 # objects right, and negative left).
-X_OFFSET_MM = 0.875
+X_OFFSET_MM = 0.000
 
 # Offet all barcode objects in the y direction (positive will move
 # objects up, and negative down).
 Y_OFFSET_MM = 0.000
+
+# Select a different darkness setting for the label printer. A value
+# between 0 (lightest) and 15 (darkest) must be given.
+DARKNESS_LEVEL = 15
+
+# Select a different speed setting for the label printer. A value
+# between 2 (slowest) and 5 (fastest) must be given.
+PRINT_SPEED = 3
