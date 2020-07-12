@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 
-# This is a copy of the standard zebra.py v0.0.5 with the exception that
-# the encoding in output is changed to specifically use "latin-1".
+########################################################################
+# Modified by Ali Al-Hakim, 2019
+# This is a copy of the standard zebra.py v0.0.5 with the exceptions:
+#  + Import print_function from __future__
+#  + Change all print statements to be wrapped in parentheses
+#  + Change encoding of command, in output() method, to 'latin-1'
+#
+########################################################################
 
 # Copyright (c) 2011-2015 Ben Croston
 #
@@ -23,9 +29,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Modified by Ali Al-Hakim, 30 August 2019
-#  + Import print_function from __future__
-#  + Change all print statements to be wrapped in parentheses
 
 from __future__ import print_function
 import os.path
