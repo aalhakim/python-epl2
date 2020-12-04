@@ -47,7 +47,7 @@ You will need to install the following modules:
 * For Windows: `pip install pywin32`
 * For Windows: `pip install infi.devicemanager`
 
-The zebra python modules is also required. However, a local copy of this is already provided in a modified format `zebra_latin1.py`. It had to be modified to allow the use of the 'GW' EPL2 command, which allows graphic and QR code printing.
+The python `zebra` module is required but a local copy (copied ~Jan 2020) of this is already provided in a modified format `zebra_latin1.py`. It had to be modified to allow the use of the 'GW' EPL2 command, which allows graphic and QR code printing.
 
 ---
 
