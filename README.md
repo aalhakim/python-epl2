@@ -47,7 +47,7 @@ You will need to install the following modules:
 * For Windows: `pip install pywin32`
 * For Windows: `pip install infi.devicemanager`
 
-The zebra python modules is also required. However, a local copy of this is already provided in a modified format `zebra_latin1.py`. It had to be modified to allow the use of the 'GW' EPL2 command, which allows graphic and QR code printing.
+The python `zebra` module is required but a local copy (copied ~Jan 2020) of this is already provided in a modified format `zebra_latin1.py`. It had to be modified to allow the use of the 'GW' EPL2 command, which allows graphic and QR code printing.
 
 ---
 
@@ -68,13 +68,13 @@ import zpconfig as cfg
 
 #### Step 2
 
-The first action must be to find a compatible printer. This code has been developed solely for use with a Zebra GK420t label printer right now so the `detect_printer()` function works by looking for keywords to how this printer normall installs itself on Windows and Unix machine. On Unix though some manual configuration is also needed.
+The first action must be to find a compatible printer. This code has been developed solely with a Zebra GK420t label printer so the `ZebraPrinter()` class or `detect_printer()` function work by looking for keywords to how this printer normally installs itself on Windows and Unix machine. Also note some additional manual configuration is also needed for Unix (noted below).
 
 For Windows:
 
 ``` python
-# Detect the zebra printer 
-zp = zprinter.detect_printer()
+# Detect the zebra printer
+zp = zprinter.ZebraPrinter()
 ```
 
 For Unix:
@@ -82,11 +82,11 @@ For Unix:
 ``` python
 # `x` can be determined by running detect_printer() on a unix system.
 # This will print a list of installed printers. Make x the position
-# # the Zebra ZDesigner GK420t printer is found in.
+# the Zebra ZDesigner GK420t printer is found in.
 PRINTER_QUEUE_POSITION = x
 
 # Detect the zebra printer 
-zp = zprinter.detect_printer()
+zp = zprinter.ZebraPrinter()
 ```
 
 #### Step 3
