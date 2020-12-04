@@ -73,8 +73,8 @@ The first action must be to find a compatible printer. This code has been develo
 For Windows:
 
 ``` python
-# Detect the zebra printer 
-zp = zprinter.detect_printer()
+# Detect the zebra printer
+zp = zprinter.ZebraPrinter()
 ```
 
 For Unix:
@@ -82,11 +82,11 @@ For Unix:
 ``` python
 # `x` can be determined by running detect_printer() on a unix system.
 # This will print a list of installed printers. Make x the position
-# # the Zebra ZDesigner GK420t printer is found in.
+# the Zebra ZDesigner GK420t printer is found in.
 PRINTER_QUEUE_POSITION = x
 
 # Detect the zebra printer 
-zp = zprinter.detect_printer()
+zp = zprinter.ZebraPrinter()
 ```
 
 #### Step 3
