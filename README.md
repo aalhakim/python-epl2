@@ -68,7 +68,7 @@ import zpconfig as cfg
 
 #### Step 2
 
-The first action must be to find a compatible printer. This code has been developed solely for use with a Zebra GK420t label printer right now so the `detect_printer()` function works by looking for keywords to how this printer normall installs itself on Windows and Unix machine. On Unix though some manual configuration is also needed.
+The first action must be to find a compatible printer. This code has been developed solely with a Zebra GK420t label printer so the `ZebraPrinter()` class or `detect_printer()` function work by looking for keywords to how this printer normally installs itself on Windows and Unix machine. Also note some additional manual configuration is also needed for Unix (noted below).
 
 For Windows:
 
